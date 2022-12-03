@@ -8,7 +8,8 @@ namespace Reactive.Net.Sandbox
     {
         static void Main(string[] args)
         {
-            TraditionalStockMonitor.RunTraditionalStockMonitor();
+            //TraditionalEventHandlerStockMonitor.RunTraditionalEventHandlerStockMonitor();
+            ReactiveStockMonitor.RunReactiveStockMonitor();
             
             //DoOperator.RunSample();
             
