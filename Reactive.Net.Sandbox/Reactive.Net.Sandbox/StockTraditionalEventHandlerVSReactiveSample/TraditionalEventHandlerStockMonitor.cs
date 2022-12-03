@@ -64,30 +64,6 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
         }
     }
 
-    public class StockTick
-    {
-        public StockTick(string quoteSymbol, double price)
-        {
-            QuoteSymbol = quoteSymbol;
-            Price = price;
-        }
-
-        public string QuoteSymbol { get; set; }
-        public double Price { get; set; }
-    }
-
-    public class StockInfo
-    {
-        public StockInfo(string quoteSymbol, double prevPrice)
-        {
-            QuoteSymbol = quoteSymbol;
-            PrevPrevPrice = prevPrice;
-        }
-
-        public string QuoteSymbol { get; }
-        public double PrevPrevPrice { get; }
-    }
-
     public class StockTickerEventHandler
     {
         public StockTickerEventHandler()

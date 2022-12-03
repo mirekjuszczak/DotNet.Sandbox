@@ -45,11 +45,6 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
                 }
             }
         }
-        
-        private static void SendUserNotification(StockTick stockTick)
-        {
-            throw new NotImplementedException();
-        }
 
         private static void PrepareStockInfos()
         {
