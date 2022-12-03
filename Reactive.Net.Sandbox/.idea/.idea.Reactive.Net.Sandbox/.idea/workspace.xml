@@ -10,6 +10,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/60c82136a77a24f0643426e36c6168a5d785f8952bb3cdc24af49d7b382672/throwhelper.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -57,6 +60,12 @@
       <updated>1669817839403</updated>
       <workItem from="1669817843368" duration="237000" />
       <workItem from="1669818264862" duration="1418000" />
+      <workItem from="1669883994890" duration="269000" />
+      <workItem from="1669888806332" duration="3665000" />
+      <workItem from="1670021010689" duration="42000" />
+      <workItem from="1670021962059" duration="3000" />
+      <workItem from="1670081290196" duration="8462000" />
+      <workItem from="1670092508475" duration="964000" />
     </task>
     <servers />
   </component>
@@ -66,5 +75,50 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Reactive.Net.Sandbox/StockTraditionalEventHandlerVSReactiveSample/TraditionalStockMonitor.cs</url>
+          <line>116</line>
+          <properties documentPath="$PROJECT_DIR$/Reactive.Net.Sandbox/StockTraditionalEventHandlerVSReactiveSample/TraditionalStockMonitor.cs" initialLine="114" containingFunctionPresentation="method 'ReadNextPrice'">
+            <startOffsets>
+              <option value="3897" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3910" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Reactive.Net.Sandbox/StockTraditionalEventHandlerVSReactiveSample/TraditionalStockMonitor.cs</url>
+          <line>118</line>
+          <properties documentPath="$PROJECT_DIR$/Reactive.Net.Sandbox/StockTraditionalEventHandlerVSReactiveSample/TraditionalStockMonitor.cs" initialLine="118" containingFunctionPresentation="method 'ReadNextPrice'">
+            <startOffsets>
+              <option value="3949" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3992" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Reactive.Net.Sandbox/StockTraditionalEventHandlerVSReactiveSample/TraditionalStockMonitor.cs</url>
+          <line>33</line>
+          <properties documentPath="$PROJECT_DIR$/Reactive.Net.Sandbox/StockTraditionalEventHandlerVSReactiveSample/TraditionalStockMonitor.cs" initialLine="33" containingFunctionPresentation="method 'OnStockTick'">
+            <startOffsets>
+              <option value="1193" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1212" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

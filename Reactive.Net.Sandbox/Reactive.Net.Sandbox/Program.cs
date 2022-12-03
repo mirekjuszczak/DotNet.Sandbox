@@ -1,4 +1,6 @@
 ﻿using System;
+using Reactive.Net.Sandbox.Operators;
+using Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample;
 
 namespace Reactive.Net.Sandbox
 {
@@ -6,7 +8,9 @@ namespace Reactive.Net.Sandbox
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Start program...");
+            TraditionalStockMonitor.RunTraditionalStockMonitor();
+            
+            //DoOperator.RunSample();
             
             Console.ReadKey();
         }
