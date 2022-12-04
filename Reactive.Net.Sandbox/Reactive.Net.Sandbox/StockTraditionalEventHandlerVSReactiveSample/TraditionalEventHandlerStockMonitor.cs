@@ -19,7 +19,7 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
 
         public static void RunTraditionalEventHandlerStockMonitor()
         {
-            PrepareStockInfos();
+            _stockInfos = CommonStockDataGenerator.PrepareStockInfos();
 
             _ticker = new StockTickerEventHandler();
             _ticker.StockTick += OnStockTick;
@@ -43,18 +43,6 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
                         $"Stock, {quoteSymbol} has changed with {changeRatio} ratio -> Old prevPrice: {stockInfo.PrevPrevPrice}, New prevPrice: {stockTick.Price}");
                 }
             }
-        }
-
-        private static void PrepareStockInfos()
-        {
-            _stockInfos = new Dictionary<string, StockInfo>();
-
-            _stockInfos.Add("a", new StockInfo("product_a", 99.99));
-            _stockInfos.Add("b", new StockInfo("product_b", 199.99));
-            _stockInfos.Add("c", new StockInfo("product_c", 299.99));
-            _stockInfos.Add("d", new StockInfo("product_d", 399.99));
-            _stockInfos.Add("e", new StockInfo("product_e", 499.99));
-            _stockInfos.Add("f", new StockInfo("product_f", 599.99));
         }
 
         public void Dispose()

@@ -9,8 +9,8 @@ namespace Reactive.Net.Sandbox
         static void Main(string[] args)
         {
             //Traditional Event Handler vs Reactive
-            //TraditionalEventHandlerStockMonitor.RunTraditionalEventHandlerStockMonitor();
-            ReactiveStockMonitor.RunReactiveStockMonitor();
+            TraditionalEventHandlerStockMonitor.RunTraditionalEventHandlerStockMonitor();
+            //ReactiveStockMonitor.RunReactiveStockMonitor();
             
             //Operators
             //DoOperator.RunSample();
