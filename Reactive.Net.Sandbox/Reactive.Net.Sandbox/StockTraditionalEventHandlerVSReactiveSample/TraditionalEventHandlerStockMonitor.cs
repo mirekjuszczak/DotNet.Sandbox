@@ -54,6 +54,8 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
 
     public class StockTickerEventHandler
     {
+        private readonly Dictionary<string, StockTick> _stockInfos = CommonStockDataGenerator.PrepareStockInfos();
+
         public StockTickerEventHandler()
         {
             Task.Run(ReadNewPrice);
@@ -63,27 +65,20 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
 
         private void ReadNewPrice()
         {
-            string? key;
-            double value;
-            
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.White;
 
             while (true)
             {
-                Console.Write("Pass Key of product (a, b, c, d, e, other): ");
-                // var consoleKey = Console.ReadLine();
-                // key = consoleKey;
-                key = "c";
+                // var keypress = Console.ReadKey();
+                // Console.WriteLine();
+                // if (keypress.Key == ConsoleKey.Enter)
+                //     break;
 
-                Console.WriteLine($"Pass new price for product {key}: ");
-                // var consoleValue = Console.ReadLine();
-                var consoleValue = "700.45";
+                var symbol = CommonStockDataGenerator.GetRandomQuoteSymbol();
+                var newRandomPriceForSymbol = CommonStockDataGenerator.GetNewRandomPrice(symbol, _stockInfos);
 
-                if (key != null && Double.TryParse(consoleValue, out value))
-                {
-                    StockTick(this, new StockTick(key, value));
-                }
+                StockTick(this, new StockTick(symbol, newRandomPriceForSymbol));
             }
         }
     }

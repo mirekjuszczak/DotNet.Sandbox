@@ -49,29 +49,22 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
         private static IObservable<StockTick> StockTickObservable() =>
             Observable.Create<StockTick>(observer =>
             {
-                string? key;
-                double value = 0;
-            
                 Console.BackgroundColor = ConsoleColor.Gray;
                 Console.ForegroundColor = ConsoleColor.White;
 
                 while (true)
                 {
-                    Console.Write("Pass Key of product (a, b, c, d, e, other): ");
-                    // var consoleKey = Console.ReadLine();
-                    // key = consoleKey;
-                    key = "c";
+                    // var keypress = Console.ReadKey();
+                    // Console.WriteLine();
+                    // if (keypress.Key == ConsoleKey.Enter)
+                    //     break;
+                    
+                    var symbol = CommonStockDataGenerator.GetRandomQuoteSymbol();
+                    var newRandomPriceForSymbol = CommonStockDataGenerator.GetNewRandomPrice(symbol, _stockInfos);
 
-                    Console.WriteLine($"Pass new price for product {key}: ");
-                    // var consoleValue = Console.ReadLine();
-                    var consoleValue = "700.45";
-
-                    if (key != null && Double.TryParse(consoleValue, out value))
-                    {
-                        observer.OnNext(new StockTick(key, value));
-                    }
+                    observer.OnNext(new StockTick(symbol, newRandomPriceForSymbol));
                 }
-                
+
                 observer.OnCompleted();
                 return Disposable.Empty;
             });
