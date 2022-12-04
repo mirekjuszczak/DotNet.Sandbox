@@ -45,7 +45,6 @@
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="StockTraditionalEventHandlerVSReactiveSample\CommonStockDataGenerator.cs" />
-        <Compile Include="StockTraditionalEventHandlerVSReactiveSample\CommonStockInfo.cs" />
         <Compile Include="StockTraditionalEventHandlerVSReactiveSample\CommonStockTick.cs" />
         <Compile Include="StockTraditionalEventHandlerVSReactiveSample\ReactiveStockMonitor.cs" />
         <Compile Include="StockTraditionalEventHandlerVSReactiveSample\TraditionalEventHandlerStockMonitor.cs" />

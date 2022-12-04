@@ -15,7 +15,7 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
     public class ReactiveStockMonitor
     {
         private const double MaxChangeRatio = 0.1;
-        private static Dictionary<string, StockInfo> _stockInfos;
+        private static Dictionary<string, StockTick> _stockInfos;
 
         public static void RunReactiveStockMonitor()
         {
@@ -28,20 +28,20 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
 
         private static void SendUserNotificationIfChangeRatioGreaterThanMaxChangeRatio(StockTick stockTick)
         {
-            StockInfo? stockInfo = null;
+            StockTick? stockInfo = null;
             var quoteSymbol = stockTick.QuoteSymbol;
             var stockInfoExist = _stockInfos.TryGetValue(quoteSymbol, out stockInfo);
 
             if (stockInfoExist)
             {
-                var priceDiff = stockTick.Price - stockInfo.PrevPrevPrice;
-                var changeRatio = Math.Abs(priceDiff / stockInfo.PrevPrevPrice);
+                var priceDiff = stockTick.Price - stockInfo.Price;
+                var changeRatio = Math.Abs(priceDiff / stockInfo.Price);
 
                 if (changeRatio > MaxChangeRatio)
                 {
                     //Notify user
                     Console.WriteLine(
-                        $"Stock, {quoteSymbol} has changed with {changeRatio} ratio -> Old prevPrice: {stockInfo.PrevPrevPrice}, New prevPrice: {stockTick.Price}");
+                        $"Stock, {quoteSymbol} has changed with {changeRatio} ratio -> Old prevPrice: {stockInfo.Price}, New prevPrice: {stockTick.Price}");
                 }
             }
         }
