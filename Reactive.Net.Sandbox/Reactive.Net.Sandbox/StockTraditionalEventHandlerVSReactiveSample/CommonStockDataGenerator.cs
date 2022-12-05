@@ -1,20 +1,21 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 
 namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
 {
     public class CommonStockDataGenerator
     {
-        public static Dictionary<string, StockTick> PrepareStockInfos()
+        public static ConcurrentDictionary<string, StockTick> PrepareStockInfos()
         {
-            var stockInfos = new Dictionary<string, StockTick>();
+            var stockInfos = new ConcurrentDictionary<string, StockTick>();
 
-            stockInfos.Add("a", new StockTick("product_a", 99.99));
-            stockInfos.Add("b", new StockTick("product_b", 199.99));
-            stockInfos.Add("c", new StockTick("product_c", 299.99));
-            stockInfos.Add("d", new StockTick("product_d", 399.99));
-            stockInfos.Add("e", new StockTick("product_e", 499.99));
-            stockInfos.Add("f", new StockTick("product_f", 599.99));
+            _ = stockInfos.TryAdd("a", new StockTick("product_a", 99.99));
+            _ = stockInfos.TryAdd("b", new StockTick("product_b", 199.99));
+            _ = stockInfos.TryAdd("c", new StockTick("product_c", 299.99));
+            _ = stockInfos.TryAdd("d", new StockTick("product_d", 399.99));
+            _ = stockInfos.TryAdd("e", new StockTick("product_e", 499.99));
+            _ = stockInfos.TryAdd("f", new StockTick("product_f", 599.99));
 
             return stockInfos;
         }
@@ -36,7 +37,7 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
             };
         }
 
-        public static double GetNewRandomPrice(string quoteSymbol, Dictionary<string, StockTick> stockInfos)
+        public static double GetNewRandomPrice(string quoteSymbol, ConcurrentDictionary<string, StockTick> stockInfos)
         {
             var rnd = new Random();
             StockTick? stockInfo = null;
@@ -48,7 +49,7 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
                 previousPrice = stockInfo!.Price;
             }
 
-            var changeRatio = (double)rnd.Next(0, 20) / 10;
+            var changeRatio = (double)rnd.Next(0, 20) / 100;
             var newPrice = previousPrice + previousPrice * changeRatio;
 
             return newPrice;

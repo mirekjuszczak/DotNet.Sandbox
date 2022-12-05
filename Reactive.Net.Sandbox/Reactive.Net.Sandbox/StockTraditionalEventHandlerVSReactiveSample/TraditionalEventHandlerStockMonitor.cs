@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,14 +10,13 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
     // - Stock update receive
     // - Calculate prevPrice change between current and previous prevPrice
     //   - if (price_change > 10%)  -> Notify user
-    //     else -> Wait for next update
+    //     else -> Wait for next update and notify that price_change less than 10%
 
     public class TraditionalEventHandlerStockMonitor : IDisposable
     {
         private const double MaxChangeRatio = 0.1;
         private static StockTickerEventHandler _ticker;
-        private static Dictionary<string, StockTick> _stockInfos;
-        private static object _stockTickerLocker = new();
+        private static ConcurrentDictionary<string, StockTick> _stockInfos;
 
         public static void RunTraditionalEventHandlerStockMonitor()
         {
@@ -30,22 +30,22 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
         {
             StockTick? stockInfo = null;
             var quoteSymbol = stockTick.QuoteSymbol;
+            var stockInfoExist = _stockInfos.TryGetValue(quoteSymbol, out stockInfo);
 
-            lock (_stockTickerLocker)
+            if (stockInfoExist)
             {
-                var stockInfoExist = _stockInfos.TryGetValue(quoteSymbol, out stockInfo);
+                var priceDiff = stockTick.Price - stockInfo.Price;
+                var changeRatio = Math.Abs(priceDiff / stockInfo.Price);
 
-                if (stockInfoExist)
+                if (changeRatio > MaxChangeRatio)
                 {
-                    var priceDiff = stockTick.Price - stockInfo.Price;
-                    var changeRatio = Math.Abs(priceDiff / stockInfo.Price);
-
-                    if (changeRatio > MaxChangeRatio)
-                    {
-                        //Notify user
-                        Console.WriteLine(
-                            $"Stock, {quoteSymbol} has changed with {changeRatio} ratio -> Old prevPrice: {stockInfo.Price}, New Price: {stockTick.Price}");
-                    }
+                    //Notify user
+                    Console.WriteLine(
+                        $"Stock, {quoteSymbol} has changed with {changeRatio} ratio -> Old prevPrice: {stockInfo.Price}, New Price: {stockTick.Price}");
+                }
+                else
+                {
+                    Console.WriteLine($"--> Change ratio less than {MaxChangeRatio}...");
                 }
             }
         }
@@ -59,7 +59,8 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
 
     public class StockTickerEventHandler
     {
-        private readonly Dictionary<string, StockTick> _stockInfos = CommonStockDataGenerator.PrepareStockInfos();
+        private readonly ConcurrentDictionary<string, StockTick> _stockInfos =
+            CommonStockDataGenerator.PrepareStockInfos();
 
         public StockTickerEventHandler()
         {
@@ -75,11 +76,6 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
 
             while (true)
             {
-                // var keypress = Console.ReadKey();
-                // Console.WriteLine();
-                // if (keypress.Key == ConsoleKey.Enter)
-                //     break;
-
                 var symbol = CommonStockDataGenerator.GetRandomQuoteSymbol();
                 var newRandomPriceForSymbol = CommonStockDataGenerator.GetNewRandomPrice(symbol, _stockInfos);
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
@@ -10,12 +11,12 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
     // - Stock update receive
     // - Calculate prevPrice change between current and previous prevPrice
     //   - if (price_change > 10%)  -> Notify user
-    //     else -> Wait for next update
+    //     else -> Wait for next update and notify that price_change less than 10%
 
     public class ReactiveStockMonitor
     {
         private const double MaxChangeRatio = 0.1;
-        private static Dictionary<string, StockTick> _stockInfos;
+        private static ConcurrentDictionary<string, StockTick> _stockInfos;
 
         public static void RunReactiveStockMonitor()
         {
@@ -43,6 +44,10 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
                     Console.WriteLine(
                         $"Stock, {quoteSymbol} has changed with {changeRatio} ratio -> Old prevPrice: {stockInfo.Price}, New Price: {stockTick.Price}");
                 }
+                else
+                {
+                    Console.WriteLine($"--> Change ratio less than {MaxChangeRatio}...");
+                }
             }
         }
 
@@ -54,11 +59,6 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
 
                 while (true)
                 {
-                    var keypress = Console.ReadKey();
-                    Console.WriteLine();
-                    if (keypress.Key == ConsoleKey.Enter)
-                        break;
-                    
                     var symbol = CommonStockDataGenerator.GetRandomQuoteSymbol();
                     var newRandomPriceForSymbol = CommonStockDataGenerator.GetNewRandomPrice(symbol, _stockInfos);
 
