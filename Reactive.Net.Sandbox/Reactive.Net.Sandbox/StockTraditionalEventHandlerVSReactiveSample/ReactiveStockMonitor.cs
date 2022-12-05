@@ -41,7 +41,7 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
                 {
                     //Notify user
                     Console.WriteLine(
-                        $"Stock, {quoteSymbol} has changed with {changeRatio} ratio -> Old prevPrice: {stockInfo.Price}, New prevPrice: {stockTick.Price}");
+                        $"Stock, {quoteSymbol} has changed with {changeRatio} ratio -> Old prevPrice: {stockInfo.Price}, New Price: {stockTick.Price}");
                 }
             }
         }
@@ -54,10 +54,10 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
 
                 while (true)
                 {
-                    // var keypress = Console.ReadKey();
-                    // Console.WriteLine();
-                    // if (keypress.Key == ConsoleKey.Enter)
-                    //     break;
+                    var keypress = Console.ReadKey();
+                    Console.WriteLine();
+                    if (keypress.Key == ConsoleKey.Enter)
+                        break;
                     
                     var symbol = CommonStockDataGenerator.GetRandomQuoteSymbol();
                     var newRandomPriceForSymbol = CommonStockDataGenerator.GetNewRandomPrice(symbol, _stockInfos);

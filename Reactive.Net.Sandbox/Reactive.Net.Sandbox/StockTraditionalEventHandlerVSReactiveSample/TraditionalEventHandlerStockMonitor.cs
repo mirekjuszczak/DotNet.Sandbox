@@ -16,6 +16,7 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
         private const double MaxChangeRatio = 0.1;
         private static StockTickerEventHandler _ticker;
         private static Dictionary<string, StockTick> _stockInfos;
+        private static object _stockTickerLocker = new();
 
         public static void RunTraditionalEventHandlerStockMonitor()
         {
@@ -29,18 +30,22 @@ namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
         {
             StockTick? stockInfo = null;
             var quoteSymbol = stockTick.QuoteSymbol;
-            var stockInfoExist = _stockInfos.TryGetValue(quoteSymbol, out stockInfo);
 
-            if (stockInfoExist)
+            lock (_stockTickerLocker)
             {
-                var priceDiff = stockTick.Price - stockInfo.Price;
-                var changeRatio = Math.Abs(priceDiff / stockInfo.Price);
+                var stockInfoExist = _stockInfos.TryGetValue(quoteSymbol, out stockInfo);
 
-                if (changeRatio > MaxChangeRatio)
+                if (stockInfoExist)
                 {
-                    //Notify user
-                    Console.WriteLine(
-                        $"Stock, {quoteSymbol} has changed with {changeRatio} ratio -> Old prevPrice: {stockInfo.Price}, New prevPrice: {stockTick.Price}");
+                    var priceDiff = stockTick.Price - stockInfo.Price;
+                    var changeRatio = Math.Abs(priceDiff / stockInfo.Price);
+
+                    if (changeRatio > MaxChangeRatio)
+                    {
+                        //Notify user
+                        Console.WriteLine(
+                            $"Stock, {quoteSymbol} has changed with {changeRatio} ratio -> Old prevPrice: {stockInfo.Price}, New Price: {stockTick.Price}");
+                    }
                 }
             }
         }
