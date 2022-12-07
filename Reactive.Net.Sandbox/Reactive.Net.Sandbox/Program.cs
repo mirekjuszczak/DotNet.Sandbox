@@ -1,6 +1,7 @@
 ﻿using System;
 using Reactive.Net.Sandbox.Operators;
-using Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample;
+using Reactive.Net.Sandbox.Samples;
+using Reactive.Net.Sandbox.Samples.StockTraditionalEventHandlerVSReactiveSample;
 
 namespace Reactive.Net.Sandbox
 {
@@ -11,12 +12,13 @@ namespace Reactive.Net.Sandbox
         {
             //Traditional Event Handler vs Reactive
             //TraditionalEventHandlerStockMonitor.RunTraditionalEventHandlerStockMonitor();
-            //ReactiveStockMonitor.RunReactiveStockMonitor();
+            ReactiveStockMonitor.RunReactiveStockMonitor();
             
             //Operators
             //DoOperator.RunSample();
             //SelectOperator.RunSample();
-            BufferOperator.RunSample();
+            //BufferOperator.RunSample();
+            //FromEventPattern.RunSample();
 
             Console.ReadKey();
         }

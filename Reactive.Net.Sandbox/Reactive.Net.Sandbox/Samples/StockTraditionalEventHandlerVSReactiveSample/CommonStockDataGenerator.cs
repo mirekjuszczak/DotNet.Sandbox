@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 
-namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
+namespace Reactive.Net.Sandbox.Samples.StockTraditionalEventHandlerVSReactiveSample
 {
     public class CommonStockDataGenerator
     {

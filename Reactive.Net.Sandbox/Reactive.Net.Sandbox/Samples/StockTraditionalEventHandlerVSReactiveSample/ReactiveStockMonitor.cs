@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 
-namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
+namespace Reactive.Net.Sandbox.Samples.StockTraditionalEventHandlerVSReactiveSample
 {
     // Example from https://livebook.manning.com/book/rx-dot-net-in-action/chapter-2/9
     // Scenario

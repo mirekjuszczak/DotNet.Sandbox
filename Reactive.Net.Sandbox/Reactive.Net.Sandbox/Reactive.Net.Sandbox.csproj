@@ -51,10 +51,11 @@
         <Compile Include="Samples\ChatConnectionStructureOnlySample\ChatTrackerWholeService.cs" />
         <Compile Include="Samples\ChatConnectionStructureOnlySample\IChatConnection.cs" />
         <Compile Include="Samples\ChatConnectionStructureOnlySample\ObservableConnection.cs" />
-        <Compile Include="StockTraditionalEventHandlerVSReactiveSample\CommonStockDataGenerator.cs" />
-        <Compile Include="StockTraditionalEventHandlerVSReactiveSample\CommonStockTick.cs" />
-        <Compile Include="StockTraditionalEventHandlerVSReactiveSample\ReactiveStockMonitor.cs" />
-        <Compile Include="StockTraditionalEventHandlerVSReactiveSample\TraditionalEventHandlerStockMonitor.cs" />
+        <Compile Include="Samples\FromEventPattern.cs" />
+        <Compile Include="Samples\StockTraditionalEventHandlerVSReactiveSample\CommonStockDataGenerator.cs" />
+        <Compile Include="Samples\StockTraditionalEventHandlerVSReactiveSample\CommonStockTick.cs" />
+        <Compile Include="Samples\StockTraditionalEventHandlerVSReactiveSample\ReactiveStockMonitor.cs" />
+        <Compile Include="Samples\StockTraditionalEventHandlerVSReactiveSample\TraditionalEventHandlerStockMonitor.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <ItemGroup>

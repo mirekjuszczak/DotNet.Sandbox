@@ -1,4 +1,4 @@
-namespace Reactive.Net.Sandbox.StockTraditionalEventHandlerVSReactiveSample
+namespace Reactive.Net.Sandbox.Samples.StockTraditionalEventHandlerVSReactiveSample
 {
     public class StockTick
     {
