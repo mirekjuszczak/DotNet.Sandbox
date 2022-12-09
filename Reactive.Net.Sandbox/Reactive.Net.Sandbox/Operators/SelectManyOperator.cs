@@ -24,21 +24,14 @@ namespace Reactive.Net.Sandbox.Operators
         {
             NestedEnumerable
                 .SelectMany(x => x)
-                .Do(PrintItem)
-                .SubscribeConsole("NestedEnumerable");
+                .Subscribe(x=> Console.WriteLine($"{x}"));
         }
         
         public static void RunObservableSample()
         {
             NestedObservable
                 .SelectMany(x => x)
-                .Do(PrintItem)
-                .SubscribeConsole("NestedEnumerable");
-        }
-
-        private static void PrintItem(ObservableItem item)
-        {
-            Console.Write($"{item}  ");
+                .Subscribe(x=> Console.WriteLine($"{x}"));
         }
 
         private static IObservable<IEnumerable<ObservableItem>> NestedEnumerable =>
@@ -57,11 +50,11 @@ namespace Reactive.Net.Sandbox.Operators
         private static IObservable<IObservable<ObservableItem>> NestedObservable =>
             Observable.Create<IObservable<ObservableItem>>(observer =>
             {
-                observer.OnNext(PeriodicallyItemsObservable("FirstParentEnumerable"));
-                observer.OnNext(PeriodicallyItemsObservable("SecondParentEnumerable"));
-                observer.OnNext(PeriodicallyItemsObservable("ThirdParentEnumerable"));
-                observer.OnNext(PeriodicallyItemsObservable("FourthParentEnumerable"));
-                observer.OnNext(PeriodicallyItemsObservable("FifthParentEnumerable"));
+                observer.OnNext(PeriodicallyItemsObservable("FirstParentObservable"));
+                observer.OnNext(PeriodicallyItemsObservable("SecondParentObservable"));
+                observer.OnNext(PeriodicallyItemsObservable("ThirdParentObservable"));
+                observer.OnNext(PeriodicallyItemsObservable("FourthParentObservable"));
+                observer.OnNext(PeriodicallyItemsObservable("FifthParentObservable"));
 
                 observer.OnCompleted();
                 return Disposable.Empty;

@@ -45,6 +45,7 @@
         <Compile Include="Operators\DoOperator.cs" />
         <Compile Include="Operators\SelectManyOperator.cs" />
         <Compile Include="Operators\SelectOperator.cs" />
+        <Compile Include="Operators\WhereOperator.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Samples\ChatConnectionStructureOnlySample\ChatClient.cs" />
