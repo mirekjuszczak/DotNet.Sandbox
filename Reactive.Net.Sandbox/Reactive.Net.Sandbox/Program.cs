@@ -15,12 +15,14 @@ namespace Reactive.Net.Sandbox
             //ReactiveStockMonitor.RunReactiveStockMonitor();
             
             //Convert from event to observable
-            FromEventPattern.RunSample();
+            //FromEventPattern.RunEnumerableSample();
 
             //Operators
-            //DoOperator.RunSample();
-            //SelectOperator.RunSample();
-            //BufferOperator.RunSample();
+            //DoOperator.RunEnumerableSample();
+            //SelectOperator.RunEnumerableSample();
+            //BufferOperator.RunEnumerableSample();
+            SelectManyOperator.RunEnumerableSample();
+            //SelectManyOperator.RunObservableSample();
 
             Console.ReadKey();
         }
