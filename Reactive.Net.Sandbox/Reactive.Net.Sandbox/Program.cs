@@ -21,9 +21,15 @@ namespace Reactive.Net.Sandbox
             //DoOperator.RunEnumerableSample();
             //SelectOperator.RunEnumerableSample();
             //BufferOperator.RunEnumerableSample();
+            
             //SelectManyOperator.RunEnumerableSample();
-            SelectManyOperator.RunObservableSample();
+            //SelectManyOperator.RunObservableSample();
+            //SelectManyAsyncWhereOperators.RunSample();
+            
             //WhereOperator.RunSample();
+            
+            //ThrottleOperator.RunSample();
+            ThrottleOperatorWithSubject.RunSample();
 
             Console.ReadKey();
         }

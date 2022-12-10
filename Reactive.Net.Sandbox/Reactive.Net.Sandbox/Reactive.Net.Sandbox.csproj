@@ -43,8 +43,11 @@
         <Compile Include="ConsoleObserver\Extentions.cs" />
         <Compile Include="Operators\BufferOperator.cs" />
         <Compile Include="Operators\DoOperator.cs" />
+        <Compile Include="Operators\SelectManyAsyncWhereOperators.cs" />
         <Compile Include="Operators\SelectManyOperator.cs" />
         <Compile Include="Operators\SelectOperator.cs" />
+        <Compile Include="Operators\ThrottleOperator.cs" />
+        <Compile Include="Operators\ThrottleOperatorWithSubject.cs" />
         <Compile Include="Operators\WhereOperator.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
