@@ -15,26 +15,25 @@ namespace Reactive.Net.Sandbox
             //ReactiveStockMonitor.RunReactiveStockMonitor();
             
             //Convert from event to observable
-            //FromEventPattern.RunEnumerableSample();
+            //FromEventPattern.RunSample();
 
             //Operators
-            //DoOperator.RunEnumerableSample();
-            //SelectOperator.RunEnumerableSample();
-            //BufferOperator.RunEnumerableSample();
+            //DoOperator.RunSample();
+            //SelectOperator.RunSample();
+            //BufferOperator.RunSample();
             
             //SelectManyOperator.RunEnumerableSample();
             //SelectManyOperator.RunObservableSample();
-            //SelectManyAsyncWhereOperators.RunNumberObservableSample();
+            //SelectManyAsyncWhereOperators.RunSample();
             
-            //WhereOperator.RunNumberObservableSample();
+            //WhereOperator.RunSample();
+            //ThrottleOperator.RunSample();
+            //ThrottleOperatorWithSubject.RunSample();     TODO - Doesn't work!!!
             
-            //ThrottleOperator.RunNumberObservableSample();
-            //ThrottleOperatorWithSubject.RunNumberObservableSample();     TODO - Doesn't work!!!
-
             //RepeatOperator.RunRangeSample();
-            RepeatOperator.RunNumberObservableSample();
-
-
+            //RepeatOperator.RunNumberObservableSample();
+            RetryOperator.RunSample();
+            
             Console.ReadKey();
         }
     }

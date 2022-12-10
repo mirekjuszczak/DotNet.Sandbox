@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace Reactive.Net.Sandbox.Operators
 {
     //Where operator expects from the given predicate to return a Boolean that will determine whether the item will be allowed to proceed on the observable.
-    //But the IsPrimeAsync method returns a Task<bool>
+    //But the IsEvenNumberCheckingWithDelay method returns a Task<bool>
     //So Task<bool> can become an IObservable<bool> on which the Where operator can work without a problem
     
     public class SelectManyAsyncWhereOperators

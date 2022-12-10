@@ -44,6 +44,7 @@
         <Compile Include="Operators\BufferOperator.cs" />
         <Compile Include="Operators\DoOperator.cs" />
         <Compile Include="Operators\RepeatOperator.cs" />
+        <Compile Include="Operators\RetryOperator.cs" />
         <Compile Include="Operators\SelectManyAsyncWhereOperators.cs" />
         <Compile Include="Operators\SelectManyOperator.cs" />
         <Compile Include="Operators\SelectOperator.cs" />
