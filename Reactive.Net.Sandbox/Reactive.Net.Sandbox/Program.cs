@@ -24,12 +24,16 @@ namespace Reactive.Net.Sandbox
             
             //SelectManyOperator.RunEnumerableSample();
             //SelectManyOperator.RunObservableSample();
-            //SelectManyAsyncWhereOperators.RunSample();
+            //SelectManyAsyncWhereOperators.RunNumberObservableSample();
             
-            //WhereOperator.RunSample();
+            //WhereOperator.RunNumberObservableSample();
             
-            //ThrottleOperator.RunSample();
-            ThrottleOperatorWithSubject.RunSample();
+            //ThrottleOperator.RunNumberObservableSample();
+            //ThrottleOperatorWithSubject.RunNumberObservableSample();     TODO - Doesn't work!!!
+
+            //RepeatOperator.RunRangeSample();
+            RepeatOperator.RunNumberObservableSample();
+
 
             Console.ReadKey();
         }

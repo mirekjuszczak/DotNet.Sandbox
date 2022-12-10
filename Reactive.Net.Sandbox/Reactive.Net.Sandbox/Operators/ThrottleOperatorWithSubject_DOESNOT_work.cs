@@ -2,6 +2,8 @@ using System;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
+using System.Threading.Tasks;
+using Reactive.Net.Sandbox.ConsoleObserver;
 
 namespace Reactive.Net.Sandbox.Operators
 {
@@ -29,7 +31,7 @@ namespace Reactive.Net.Sandbox.Operators
             while (true)
             {
                 var keypress = Console.ReadKey();
-                if (keypress.Key == ConsoleKey.Enter)
+                if (keypress.Key == ConsoleKey.Enter) 
                 {
                     break;
                 }
