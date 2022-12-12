@@ -32,7 +32,8 @@ namespace Reactive.Net.Sandbox
             
             //RepeatOperator.RunRangeSample();
             //RepeatOperator.RunNumberObservableSample();
-            RetryOperator.RunSample();
+            //RetryOperator.RunSample();
+            TakeWhileSkipWhileOpertors.RunSample();
             
             Console.ReadKey();
         }

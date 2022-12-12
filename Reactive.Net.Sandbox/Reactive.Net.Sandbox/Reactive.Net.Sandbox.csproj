@@ -48,6 +48,7 @@
         <Compile Include="Operators\SelectManyAsyncWhereOperators.cs" />
         <Compile Include="Operators\SelectManyOperator.cs" />
         <Compile Include="Operators\SelectOperator.cs" />
+        <Compile Include="Operators\TakeWhileSkipWhileOpertors.cs" />
         <Compile Include="Operators\ThrottleOperator.cs" />
         <Compile Include="Operators\ThrottleOperatorWithSubject_DOESNOT_work.cs" />
         <Compile Include="Operators\WhereOperator.cs" />
