@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reactive.Net.Sandbox", "Rea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegatesPlays", "DelegatesPlays\DelegatesPlays.csproj", "{70914472-9666-4D4F-BE8B-FEDFE555E0BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtherSamples", "OtherSamples\OtherSamples.csproj", "{45D0D995-040F-4482-B388-865551B4C52C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{70914472-9666-4D4F-BE8B-FEDFE555E0BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70914472-9666-4D4F-BE8B-FEDFE555E0BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70914472-9666-4D4F-BE8B-FEDFE555E0BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45D0D995-040F-4482-B388-865551B4C52C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45D0D995-040F-4482-B388-865551B4C52C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45D0D995-040F-4482-B388-865551B4C52C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45D0D995-040F-4482-B388-865551B4C52C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

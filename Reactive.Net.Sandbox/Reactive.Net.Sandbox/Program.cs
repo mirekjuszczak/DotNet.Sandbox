@@ -11,7 +11,7 @@ namespace Reactive.Net.Sandbox
         static void Main(string[] args)
         {
             //Traditional Event Handler vs Reactive
-            //TraditionalEventHandlerStockMonitor.RunTraditionalEventHandlerStockMonitor();
+            TraditionalEventHandlerStockMonitor.RunTraditionalEventHandlerStockMonitor();
             //ReactiveStockMonitor.RunReactiveStockMonitor();
             
             //Convert from event to observable
@@ -33,7 +33,7 @@ namespace Reactive.Net.Sandbox
             //RepeatOperator.RunRangeSample();
             //RepeatOperator.RunNumberObservableSample();
             //RetryOperator.RunSample();
-            TakeWhileSkipWhileOpertors.RunSample();
+            //TakeWhileSkipWhileOpertors.RunSample();
             
             Console.ReadKey();
         }
